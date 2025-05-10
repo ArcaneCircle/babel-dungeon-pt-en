@@ -1,6 +1,6 @@
-# Babel Dungeon (🇩🇪/🇬🇧)
+# Babel Dungeon (🇵🇹/🇬🇧)
 
-A gamified tool for German/English vocabulary learning
+A gamified tool for Portuguese/English vocabulary learning
 
 ## Contributing
 
