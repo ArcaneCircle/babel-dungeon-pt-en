@@ -52,7 +52,7 @@ export default function GameSession({ showXP, session }: Props) {
     width: "50%",
     color: "white",
     border: "none",
-    padding: "0.5em",
+    padding: "0.6em 0.5em",
     fontSize: "1.5em",
   };
 
