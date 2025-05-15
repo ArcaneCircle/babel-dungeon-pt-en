@@ -17,7 +17,7 @@ export default function IntroModal(props: Props) {
         </div>
         <p>
           {_(
-            "Looking for a shortcut to learning German you entered the Babel Dungeon, but to your surprise, instead of answers, all you found was weird creatures creeping in the darkness.",
+            "Looking for a shortcut to learning another language you entered the Babel Dungeon, but to your surprise, instead of answers, all you found was weird creatures creeping in the darkness.",
           )}
         </p>
         <p>
