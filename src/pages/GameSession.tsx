@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { MAIN_COLOR, RED } from "~/lib/constants";
 import { _ } from "~/lib/util";
 import { getMode, getTTSEnabled, getSFXEnabled } from "~/lib/storage";
-import { successSfx, errorSfx } from "~/lib/sounds";
+import { successSfx, errorSfx, clickSfx } from "~/lib/sounds";
 import { getCard, sendMonsterUpdate } from "~/lib/game";
 import { tts } from "~/lib/tts";
 
@@ -40,7 +40,11 @@ export default function GameSession({ showXP, session }: Props) {
     sendMonsterUpdate(monster, true);
   };
   const onShow = () => {
-    if (ttsEnabled && !defaultMode) tts(sentence);
+    if (ttsEnabled && !defaultMode) {
+      tts(sentence);
+    } else if (sfxEnabled) {
+      clickSfx.play();
+    }
     setShow(true);
   };
 
