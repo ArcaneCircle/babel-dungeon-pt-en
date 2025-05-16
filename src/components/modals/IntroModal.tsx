@@ -11,7 +11,11 @@ type Props = {
 export default function IntroModal(props: Props) {
   return (
     <ConfirmModal {...props}>
-      <div className="selectable" style={{ textAlign: "center", fontSize: "0.9em" }} tabIndex={1}>
+      <div
+        className="selectable"
+        style={{ textAlign: "center", fontSize: "0.9em" }}
+        tabIndex={1}
+      >
         <div style={{ marginBottom: "2em" }}>
           {_("Welcome to Babel Dungeon!")}
         </div>
