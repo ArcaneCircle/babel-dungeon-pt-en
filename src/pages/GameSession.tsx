@@ -26,7 +26,10 @@ export default function GameSession({ showXP, session }: Props) {
   const defaultMode = getMode();
   const ttsEnabled = getTTSEnabled();
   const sfxEnabled = getSFXEnabled();
-  const monster = session.pending[0] || session.failed[0];
+  const monster =
+    session.pending[0] ||
+    session.failed[0] ||
+    session.correct[session.correct.length - 1];
   const { sentence, meanings } = getCard(monster.id);
 
   const onFailed = () => {
