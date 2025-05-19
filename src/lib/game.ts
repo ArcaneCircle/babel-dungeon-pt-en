@@ -311,7 +311,7 @@ async function processUpdate(update: ReceivedStatusUpdate<Payload>) {
       case NEW_CMD: {
         setEnergy(payload.energy, payload.time);
         setMode(payload.mode);
-        const session = await createNewSession();
+        const session = await createNewSession(payload.time);
         setSession(session);
         setShowIntro();
         setSessionState(session);
@@ -334,11 +334,10 @@ async function processUpdate(update: ReceivedStatusUpdate<Payload>) {
   if (update.serial === update.max_serial) setMaxSerial(update.serial);
 }
 
-async function createNewSession(): Promise<Session> {
-  const now = Date.now();
+async function createNewSession(start: number): Promise<Session> {
   let monsters = await db.monsters
     .orderBy("due")
-    .filter((monster) => monster.due <= now)
+    .filter((monster) => monster.due <= start)
     .limit(10)
     .toArray();
   let unseenIndex = getUnseenIndex();
@@ -358,7 +357,7 @@ async function createNewSession(): Promise<Session> {
     monsters = await db.monsters.orderBy("due").limit(10).toArray();
   }
   return {
-    start: now,
+    start,
     xp: 0,
     failedIds: [],
     correct: [],
